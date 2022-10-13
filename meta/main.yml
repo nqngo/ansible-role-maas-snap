@@ -1,0 +1,24 @@
+galaxy_info:
+  role_name: maas_snap
+  author: Nhat Ngo
+  description: Ansible role to install and configure Ubuntu MAAS via snap.
+  namespace: nqngo
+
+  license: MIT
+
+  min_ansible_version: "2.1"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+        - jammy
+
+  galaxy_tags:
+    - system
+    - maas
+    - snap
+    - ubuntu
+
+dependencies: []
