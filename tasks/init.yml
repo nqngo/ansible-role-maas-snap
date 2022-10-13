@@ -1,0 +1,12 @@
+---
+- name: Run maas init
+  become: true
+  ansible.builtin.command:
+    cmd: "maas init region+rack --database-uri '{{ maas_db_uri }}' --maas-url '{{ maas_url }}' --force"
+  changed_when: maas_status.stdout == "MAAS is not configured"
+
+- name: Create MAAS admin
+  become: true
+  ansible.builtin.command:
+    cmd: "maas createadmin --username {{ maas_admin_name }} --password '{{ maas_admin_password }}' --email '{{ maas_admin_email }}'"
+  changed_when: maas_status.stdout == "MAAS is not configured"

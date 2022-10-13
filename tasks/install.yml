@@ -1,0 +1,13 @@
+---
+- name: Install maas snap package
+  become: true
+  community.general.snap:
+    name: maas
+    channel: "{{ maas_snap_channel }}"
+
+- name: Install maas-test-db snap package
+  become: true
+  community.general.snap:
+    name: maas-test-db
+    channel: "{{ maas_test_db_channel }}"
+  when: maas_install_test_db

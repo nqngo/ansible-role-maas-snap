@@ -1,0 +1,6 @@
+---
+warn_list:
+  - deprecated-module
+
+skip_list:
+  - no-changed-when

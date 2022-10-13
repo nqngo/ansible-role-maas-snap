@@ -1,2 +1,17 @@
 ---
-# tasks file for .
+- name: Install MAAS
+  ansible.builtin.include_tasks:
+    file: install.yml
+
+- name: Check if MAAS needs to be initialised
+  become: true
+  ansible.builtin.command:
+    cmd: maas status
+  register: maas_status
+  failed_when: false
+  changed_when: maas_status.stdout == "MAAS is not configured"
+
+- name: Initialise MAAS
+  ansible.builtin.include_tasks:
+    file: init.yml
+  when: maas_status.stdout == "MAAS is not configured"
