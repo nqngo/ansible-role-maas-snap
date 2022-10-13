@@ -1,8 +1,8 @@
 galaxy_info:
   role_name: maas_snap
+  namespace: nqngo
   author: Nhat Ngo
   description: Ansible role to install and configure Ubuntu MAAS via snap.
-  namespace: nqngo
 
   license: MIT
 
