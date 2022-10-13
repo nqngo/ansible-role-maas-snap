@@ -1,6 +1,7 @@
 ---
 warn_list:
   - deprecated-module
-
+  - jinja[invalid]
+  - no-handler
 skip_list:
   - no-changed-when
