@@ -1,10 +1,28 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
-- name: Verify
+- name: Verify maas is up and running
   hosts: all
   gather_facts: false
+  vars:
+    maas_url: "http://localhost:5240/MAAS"
+    maas_admin_name: "maas"
   tasks:
-  - name: Example assertion
-    ansible.builtin.assert:
-      that: true
+    - name: Test if MAAS is initialised
+      become: true
+      ansible.builtin.command:
+        cmd: maas status
+      register: maas_status
+      failed_when: maas_status.stdout == "MAAS is not configured"
+
+    - name: Fetch maas user API-key
+      become: true
+      ansible.builtin.command:
+        cmd: maas apikey --username maas
+      register: maas_apikey
+      failed_when: maas_apikey.rc != 0
+
+    - name: Test if MAAS API login success
+      become: true
+      ansible.builtin.command:
+        cmd: "maas login admin {{ maas_url }}/api/2.0/ {{ maas_apikey.stdout }}"
+      register: maas_login
+      failed_when: maas_login.rc != 0
