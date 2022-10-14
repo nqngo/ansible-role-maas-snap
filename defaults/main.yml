@@ -1,6 +1,8 @@
 ---
 maas_snap_channel: "3.2/stable"
+maas_test_db_channel: "{{ maas_snap_channel }}"
 
+maas_url: "http://localhost:5240/MAAS"
 maas_install_test_db: true
 maas_db_uri: "maas-test-db:///"
 
