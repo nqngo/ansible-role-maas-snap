@@ -11,6 +11,20 @@ platforms:
       alias: '22.04'
     type: container
     ignore_volatile_options: true
+  - name: maas-2004
+    source:
+      server: https://cloud-images.ubuntu.com/releases
+      protocol: simplestreams
+      alias: '20.04'
+    type: container
+    ignore_volatile_options: true
+  - name: maas-1804
+    source:
+      server: https://cloud-images.ubuntu.com/releases
+      protocol: simplestreams
+      alias: '18.04'
+    type: container
+    ignore_volatile_options: true
 provisioner:
   name: ansible
 verifier:
