@@ -2,9 +2,15 @@
 dependency:
   name: galaxy
 driver:
-  name: delegated
+  name: lxd
 platforms:
-  - name: instance
+  - name: maas-2204
+    source:
+      server: https://cloud-images.ubuntu.com/releases
+      protocol: simplestreams
+      alias: '22.04'
+    type: container
+    ignore_volatile_options: true
 provisioner:
   name: ansible
 verifier:
