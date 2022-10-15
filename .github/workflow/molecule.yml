@@ -1,0 +1,27 @@
+---
+name: Test role against LXD instances
+
+on:
+  push:
+    branches:
+    - "main"
+  pull_request:
+    branches:
+    - "main"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: lxd
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: |
+        pipenv install --deploy
+    - name: Run molecule
+      run: |
+        pipenv run molecule test

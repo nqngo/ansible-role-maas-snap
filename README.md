@@ -1,38 +1,56 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This Ansible role install [https://maas.io/](https://maas.io/) via Ubuntu snaps.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- Target hosts: Ubuntu 18.04+ with `snapd` already installed.
+- Control host: `ansible~=6`. (Only `ansible==6.5` has been tested)
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+```yaml
+# MAAS snap channel to use
+maas_snap_channel: "3.2/stable"
+maas_test_db_channel: "{{ maas_snap_channel }}"
+
+# MAAS local url
+maas_url: "http://localhost:5240/MAAS"
+
+# If using an existing postgresql, set this to false
+maas_install_test_db: true
+# IF using an existing postgresql, set the db uri
+maas_db_uri: "maas-test-db:///"
+
+# MAAS admin user name configuration
+maas_admin_name: "maas"
+maas_admin_password: "maas"
+maas_admin_email: "maas@example.com"
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+ - `community.general`
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+```yaml
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: nqngo.maas_snap
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+For issues, please lodge request at [https://github.com/nqngo/ansible-role-maas-snap/issues](https://github.com/nqngo/ansible-role-maas-snap/issues)
