@@ -12,4 +12,4 @@ molecule = "4.0.1"
 molecule-lxd = "0.3"
 
 [requires]
-python_version = "3.8"
+python_version = "3.10"
