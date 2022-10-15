@@ -4,12 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-
-[dev-packages]
 pre-commit = "*"
 ansible = "6.5"
 molecule = "4.0.1"
 molecule-lxd = "0.3"
+
+[dev-packages]
 
 [requires]
 python_version = "3.10"
