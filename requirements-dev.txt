@@ -1,4 +1,0 @@
-pre-commit
-ansible
-molecule
-molecule-lxd
