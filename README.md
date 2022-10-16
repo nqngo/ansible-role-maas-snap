@@ -1,7 +1,7 @@
 MAAS Snap
 =========
 
-![Ubuntu 18.04, 20.04, 22.04](https://github.com/nqngo/ansible-role-maas-snap/actions/workflows/molecule.yml/badge.svg?branch=main)
+![Ubuntu 18.04+](https://github.com/nqngo/ansible-role-maas-snap/actions/workflows/molecule.yml/badge.svg?branch=main)
 
 This Ansible role install [https://maas.io/](https://maas.io/) via Ubuntu snaps.
 
